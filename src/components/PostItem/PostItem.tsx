@@ -2,13 +2,8 @@ import { MyBtn } from "../UI/MyBtn/MyBtn";
 import { IPostItem } from "./PostItem.interface";
 import styles from './PostItem.module.scss';
 
-export const PostItem: React.FC<IPostItem> = ({ count, post }: IPostItem): JSX.Element => {
-  const { title, body } = post
-
-  const foo = () => {
-    console.log('Привет...');
-  }
-  
+export const PostItem: React.FC<IPostItem> = ({ count, post, removePost }: IPostItem): JSX.Element => {
+  const { title, body, id } = post
   return (
     <div className={styles.postItemWrapper}>
       <div className={styles.postItemWrapperInfo}>
@@ -20,7 +15,7 @@ export const PostItem: React.FC<IPostItem> = ({ count, post }: IPostItem): JSX.E
         <p>{body}</p>
       </div>
       <div className={styles.postItemWrapperBottom}>
-      <MyBtn className={styles.postItemWrapperBottomBtn} onClick={foo}>
+      <MyBtn onClick={() => removePost(id)} className={styles.postItemWrapperBottomBtn}>
         Удалить
       </MyBtn>
       </div>
