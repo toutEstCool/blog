@@ -1,9 +1,14 @@
 import { MyBtn } from "../UI/MyBtn/MyBtn";
 import { IPostItem } from "./PostItem.interface";
 import styles from './PostItem.module.scss';
+import { toast } from 'react-toastify';
 
 export const PostItem: React.FC<IPostItem> = ({ count, post, removePost }: IPostItem): JSX.Element => {
   const { title, body, id } = post
+  const deletPost = (id: number) => {
+    removePost(id)
+    toast.success(`Пост, #${count}. Был успешно удален... 🚶🏾‍♂️`)
+  }
   return (
     <div className={styles.postItemWrapper}>
       <div className={styles.postItemWrapperInfo}>
@@ -15,7 +20,7 @@ export const PostItem: React.FC<IPostItem> = ({ count, post, removePost }: IPost
         <p>{body}</p>
       </div>
       <div className={styles.postItemWrapperBottom}>
-      <MyBtn onClick={() => removePost(id)} className={styles.postItemWrapperBottomBtn}>
+      <MyBtn onClick={() => deletPost(id)} className={styles.postItemWrapperBottomBtn}>
         Удалить
       </MyBtn>
       </div>

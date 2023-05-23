@@ -1,0 +1,13 @@
+.formWrapper {
+  @apply flex flex-col w-full gap-5 mt-5 border-b-2 pb-5;
+
+  input {
+    @apply py-3 px-4 rounded-lg;
+  }
+  div {
+    @apply flex justify-end;
+    button {
+      @apply flex justify-center items-center gap-3 bg-yellow-50 rounded-[8px] text-slate-50 text-black ease-in-out duration-700 text-sm font-medium px-3 py-2 shadow-lg hover:shadow-cyan-500/50;
+    }
+  }
+}

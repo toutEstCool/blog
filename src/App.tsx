@@ -1,6 +1,7 @@
 import React from "react";
 import { PostList } from "./components/PostList/PostList";
 import { Form } from "./components/Form/Form";
+import { ToastContainer } from 'react-toastify';
 
 export const App: React.FC = (): JSX.Element => {
   const [posts, setPost] = React.useState([
@@ -19,6 +20,7 @@ const removePost = (id: number) => setPost(posts.filter(post => post.id !== id))
 
   return (
   <>
+    <ToastContainer />
     <Form addNewPost={addNewPost} />
     <PostList title="IT" posts={posts} removePost={removePost}/>
   </>
